@@ -12,16 +12,16 @@ const assert = chai.assert;
 const sentenceIt = (arr) => {
   // these work, you need to use them with the right array methods
   const isWord = (entry) => {
-    return /^[a-zA-Z]+$/.test(entry);
+    return /^[a-zA-Z]+$/.test(entry);  // keyword to filter make sense words!!! :))
   };
   const twoWords = (acc, next) => {
-    return `${acc} ${next}`;
+    return `${acc} ${next}`;  // keyword to combine each word together
   };
 
   // fill in the array method to use the logic above
   const sentenceIt = arr
-    ._(_)
-    ._(_, _);
+    .filter(isWord)
+    .reduce(twoWords, ``); // use reduce this (x, y) format for combine the words in a string
 
   return sentenceIt;
 };

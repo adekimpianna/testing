@@ -24,15 +24,15 @@ const sumNumbery = (arr) => {
   };
 
   // fill in the array methods and pass the correct logic
-  const areAllStrings = arr._(_);
+  const areAllStrings = arr.every(isString); // every() is to tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
   if (!areAllStrings) {
     throw new TypeError('arr is not all strings');
   }
 
   const sumOfNumber = arr
-    ._(_)
-    ._(_)
-    ._(_, _);
+    .map(castToNumber)
+    .filter(isNotNaN)
+    .reduce(sumNumbers, 0); // use reduce with this (x, y)  for sums up
 
   return sumOfNumber;
 };
