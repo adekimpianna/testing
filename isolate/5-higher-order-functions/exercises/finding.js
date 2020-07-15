@@ -7,15 +7,7 @@
  * @param {string} str - the string to check for enthusiasm
  * @returns {boolean}
  */
-const isCurious = (entry) => {
-  let theHuh = '';
-  if (entry !== 'huh?') {
-    theHuh = '';
-  } else {
-    theHuh = 'huh?';
-  }
-  return theHuh;
-};
+const isCurious = (entry) => entry === 'huh?' ? true: false;
 
 // this works! no need to change it
 const find = (arr, callback) => {
