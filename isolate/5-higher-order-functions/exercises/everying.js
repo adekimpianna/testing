@@ -7,9 +7,16 @@
  * @param {any} val
  * @returns {boolean}
  */
-const isFalsy = (_) => {
-  return _;
+const isFalsy = (entry) => {
+  let value = Boolean(entry);
+  if (value === true) {
+    value = !true;
+  } else {
+    value = !false;
+  }
+  return value;
 };
+
 
 
 // this works!  no need to change it

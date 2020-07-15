@@ -26,34 +26,33 @@
       hint: use ctr-f to find all of the blanks _
     */
 
-    // 1. A user can see all numbers listed in an alert
-    const displayNumbersHandler = (arrayOfNumbers = numbers, message = _) => {
+     // 1. A user can see all numbers listed in an alert
+    
+     const displayNumbersHandler = (arrayOfNumbers = numbers, message = 'all numbers') => {
       debugger;
-      const joinNumbers = (acc, next) => {
-        return _;
-      };
+      const joinNumbers = (acc, next) => `${acc}\n${next}`;
       const allNumbersListed = arrayOfNumbers
-        ._(joinNumbers, _);
+        .reduce(joinNumbers,``);
       alert(`${message}: ${allNumbersListed}`);
     };
 
     // 2. A user can fill the array with as many numbers as they like
     //  (beginning with zero, ending with userNumber - 1)
+    
     const resetNumbersHandler = () => {
       debugger;
-      const userInput = prompt(_);
-      if (_) { return; }
+      const userInput = prompt(`How many numbers do you like?`);
+      if (userInput === false) {return;}
 
       const userNumber = Number(userInput);
-      if (_) {
-        alert(_);
-        return;
+      if (Number.isNaN(userNumber)) {
+        alert(`${userInput} is not a valid number`);
       }
 
       // a basic for loop, not for ... of
       numbers = [];
-      for (_; _; _) {
-        numbers._(_);
+      for (let i = 0; i < userNumber; i++) {
+        numbers.push(i);
       };
 
       displayNumbersHandler(); // no arguments! this is correct like it is
@@ -62,58 +61,58 @@
     // 3. A user can see a list of all numbers greater than their input
     const greaterThanHandler = () => {
       debugger;
-      const userInput = prompt(_);
-      if (_) { return; }
+      const userInput = prompt(`find all numbers greater than`);
+      if (userInput === false) { return; }
 
-      const userNumber = _;
-      if (_) {
-        alert(_);
+      const userNumber = Number(userInput);
+      if (Number.isNaN(userNumber)) {
+        alert(`there are 0 number greater than ${userInput}`);
         return;
       }
 
-      const numbersGreaterThan = numbers._(_);
+      const numbersGreaterThan = numbers.filter((number) => number > userNumber);
       const howMany = numbersGreaterThan.length;
-      const newMessage = _;
+      const newMessage = `there are ${howMany} number greater than ${userInput}`;
 
-      _(numbersGreaterThan, newMessage);
+      displayNumbersHandler(numbersGreaterThan, newMessage);
     };
 
-    // 4. A user can see a list of all numbers less than their input
+    //4. A user can see a list of all numbers less than their input
     const lessThanHandler = () => {
       debugger;
-      const userInput = _;
-      if (_) { return; }
+      const userInput = prompt(`find all numbers smaller than`);
+      if (userInput === false) { return; }
 
-      const userNumber = _;
-      if (_) {
-        _;
+      const userNumber = Number(userInput);
+      if (Number.isNaN(userNumber)) {
+        alert(`there are 0 number smaller than ${userInput}`);
         return;
       }
 
-      const numbersLessThan = numbers._(_);
+      const numbersLessThan = numbers.filter((number) => number < userNumber);
       const howMany = numbersLessThan.length;
-      const newMessage = _;
+      const newMessage = `there are ${howMany} number greater than ${userInput}`;
 
-      _(numbersLessThan, newMessage);
+      displayNumbersHandler(numbersLessThan, newMessage);
     };
 
     // 5. A user can see a list of all numbers divisible by their input
     const divisibleByHandler = () => {
       debugger;
-      const userInput = _;
-      if (_) { return; }
+      const userInput = prompt(`find all numbers divisible by`);
+      if (userInput === false ) { return; }
 
-      const userNumber = _;
-      if (_) {
-        alert(_);
+      const userNumber = Number(userInput);
+      if (Number.isNaN(userNumber)) {
+        alert(`there are 0 number smaller than ${userInput}`);
         return;
       }
 
-      const numbersDivisible = _;
+      const numbersDivisible = numbers.filter((number) => number % userNumber === 0);
       const howMany = numbersDivisible.length;
-      const newMessage = _;
+      const newMessage =  `there are ${howMany} divisible by ${userInput}`;
 
-      _(numbersDivisible, newMessage);
+      displayNumbersHandler(numbersDivisible, newMessage);
     };
   </script>
 </head>

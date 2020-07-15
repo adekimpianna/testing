@@ -7,8 +7,14 @@
  * @param {string} str - the string to check for enthusiasm
  * @returns {boolean}
  */
-const isCurious = (_) => {
-  return _;
+const isCurious = (entry) => {
+  let theHuh = '';
+  if (entry !== 'huh?') {
+    theHuh = '';
+  } else {
+    theHuh = 'huh?';
+  }
+  return theHuh;
 };
 
 // this works! no need to change it

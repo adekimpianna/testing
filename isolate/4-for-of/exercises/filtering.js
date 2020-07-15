@@ -12,10 +12,11 @@ const filterOutStrings = (arr) => {
   if (!Array.isArray(arr)) { throw new TypeError('arr'); }
 
   const noStrings = [];
-  for (const _ of _) {
-
+  for (const element of arr) {
+    if (typeof element !== 'string') {
+      noStrings.push(element);
+    }
   }
-
   return noStrings;
 };
 

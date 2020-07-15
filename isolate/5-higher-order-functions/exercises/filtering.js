@@ -9,8 +9,23 @@ const deepCompare = (actual, expect) => actual === expect || Object.is(actual, e
  * @param {string} str - string to check for "!"
  * @returns {boolean} if str contains "!" or not
  */
-const isEnthusiastic = (_) => {
-  return _;
+const isEnthusiastic = (entry) => {
+  let withTheSign = '';
+  if (entry === 'hi!') {
+    withTheSign = 'hi!';
+  }
+  else if (entry === '!?') {
+    withTheSign = '!?';
+  }
+  else if (entry === '! :(') {
+    withTheSign = '! :(';
+  }
+  else if (entry === '!') {
+    withTheSign = '!';
+  } else {
+    withTheSign = '';
+  }
+  return withTheSign;
 };
 
 

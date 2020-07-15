@@ -11,13 +11,13 @@ const assert = chai.assert;
 const containsNoNumbers = (arr) => {
   if (!Array.isArray(arr)) { throw new TypeError('arr'); }
 
-  let noNumbers = _;
-  for (const _ of _) {
-
-  }
-
-  return noNumbers;
-};
+  let noNumbers = true ;
+  for (let element of arr) {
+    if (typeof element === 'number') {
+       noNumbers = false;
+    } 
+  } return noNumbers;
+}
 
 
 describe('containsNoNumbers checks if an array contains no numbers', () => {
