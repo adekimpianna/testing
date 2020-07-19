@@ -405,6 +405,19 @@
       ]
     },
     {
+      "path": "/1-reference-vs-value",
+      "dirs": [
+        {
+          "path": "/exercises",
+          "files": [
+            {
+              "path": "/3-fill-in-blanks.js"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "/10-object-transformations",
       "dirs": [
         {
@@ -453,6 +466,14 @@
           "config": {
             "buttons": []
           }
+        }
+      ]
+    },
+    {
+      "path": "/3-about-testing",
+      "files": [
+        {
+          "path": "/6-all-together.js"
         }
       ]
     }
