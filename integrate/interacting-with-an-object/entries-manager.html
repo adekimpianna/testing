@@ -16,88 +16,106 @@
   </style>
 
   <script id='script-variables'>
-    const userEntries = {
+    let userEntries = {
       wood: 'oak',
-      television: '>:)'
+      television: 'flat'
     };
   </script>
 
   <script id='handlers'>
     'use strict';
 
-    const displayEntriesHandler = (message = '_', object = _) => {
+    const displayEntriesHandler = (message = 'all entries', object = userEntries) => {
       debugger;
       const starter = message + ':';
-      const stringToDisplay = Object._(object)
-        .reduce((message, nextEntry) => {
-          const nextLine = nextEntry[_] + ': ' + nextEntry[_];
-          return _;
-        }, starter);
+      let stringToDisplay = starter;
+      for (const key in object) {
+        const nextLine = ` ${key}: ${object[key]}`;
+        stringToDisplay += '\n' + nextLine;
+      }
       alert(stringToDisplay);
     };
 
-    const resetHandler = () => {
+    const resetHandler = (message, userEntries) => {
       debugger;
-      userEntries = _;
+      userEntries = {};
+      displayEntriesHandler(message, userEntries);
+    };
+
+    const writeEntryHandler = (object = userEntries) => {
+      debugger;
+      const key = prompt('enter a key:');
+      if ( key == null ) {
+        return;
+        }
+       
+      const newValue = prompt('enter a value:');
+      if (newValue == null) {
+        return;
+        }
+
+      object[key] = newValue;
+
       displayEntriesHandler();
     };
 
-    const writeEntryHandler = () => {
+    const deleteEntryHandler = (object = userEntries) => {
       debugger;
-      const key = prompt('');
-      if (_) { return; }
+      const userKey = prompt('enter a key to find:');
+      if (userKey === null) { return; }
 
-      const newValue = prompt('');
-      if (_) { return; }
+      let keyExists = false;
+      for (const key in object) {
+        if (userKey === key) {
+          keyExists = true;
+          break;
+        }
+      }
 
-      _[_] = _;
-
-      displayEntriesHandler();
-    };
-
-    const deleteEntryHandler = () => {
-      debugger;
-      const key = prompt('');
-      if (key === null) { return; }
-
-      const keyExists = Object._(userEntries)
-        .includes(key); // does the array include the exact string?
-
-      if (keyExists) {
-        delete _;
-        _();
+      if (keyExists === true) {
+        delete userEntries[userKey];
+        displayEntriesHandler();
       } else {
-        alert(``);
+        alert(`${userKey} does not exist`);
       }
     };
 
-    const findKeyHandler = () => {
+    const findKeyHandler = (object = userEntries) => {
       debugger;
-      const key = prompt('');
-      if (key === null) { return; }
+      const userKey = prompt(`enter a key to find:`);
+      if (userKey === null) { return; }
 
-      const keyExists = Object._(_)
-        ._(key); // does the array include the exact string?
+      let keyExists = false;
+      for (const key in object) {
+        if (userKey === key) {
+          keyExists = true;
+          break;
+        }
+      }
 
-      if (_) {
-        const foundEntry = ``;
+      if (keyExists === true) {
+        const foundEntry = `${userKey}: ${object[userKey]}`;
         alert(foundEntry);
       } else {
-        alert(``);
+        alert(`entry ${userKey} does not exist`);
       }
     };
 
-    const searchValuesHandler = () => {
+    const searchValuesHandler = (message, object = userEntries) => {
       debugger;
-      const query = prompt('');
+      const query = prompt(`enter a search query in values`);
       if (query === null) { return; }
 
-      const matchingEntries = Object._(_)
-        ._((entry) => {
-          return entry[1]._(query); // does the string include this substring?
-        });
-      const searchResults = Object._(_);
-      displayEntriesHandler(``, _);
+      let searchResults = {};
+      for (const key in object) {
+        const value = object[key];
+        const matchesQuery = value.includes(query); // does the string value include the query?
+        if (matchesQuery == true) {
+          searchResults[key] = value ;
+        }
+      }
+
+      displayEntriesHandler(message = `search results for "${query}"`, object = searchResults);
     };
   </script>
 </head>
