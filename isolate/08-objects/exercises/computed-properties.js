@@ -7,23 +7,23 @@ describe('computed properties', () => {
     const wet = 'soup';
     const dry = 'bread';
     const obj = {
-      [_]: 'wet',
-      _: _
+      [wet] : 'wet', // or soup : 'wet'
+      dry : 'bread'
     };
     expect(obj.soup).to.eql('wet');
-    expect(obj.dry).to.eql(_);
+    expect(obj.dry).to.eql('bread');
   });
   it('a menagerie', () => {
     const swimming = 'mackerel';
     const mackerel = 'swimming';
-    const inTheSky = _;
+    const inTheSky = 'flying';
     const obj = {
-      [_]: 'crane',
-      [_]: _,
-      running: _
+      [inTheSky]: 'crane',
+      [mackerel]: swimming,
+      running: 'cheetah'
     };
     expect(obj.flying).to.eql('crane');
-    expect(_).to.eql('cheetah');
+    expect(obj.running).to.eql('cheetah');
     expect(obj[mackerel]).to.eql(swimming)
   });
 });

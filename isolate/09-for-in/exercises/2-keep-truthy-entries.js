@@ -7,13 +7,15 @@ const assert = chai.assert;
  * @param {Object} obj - the object to filter
  * @returns {Object} - the filtered object
  */
+
 const keepTruthyEntries = (obj) => {
 
-  let onlyTruthyEntries = _;
-  for (const _ in _) {
-    const value = _;
-    if (_) {
-      _[_] = _;
+  let onlyTruthyEntries = {};
+  for (const key in obj) {
+    const value = obj[key];
+    const valueBooleaned = Boolean(value);
+    if (valueBooleaned === true) {
+      onlyTruthyEntries[key] = value;
     }
   }
 
