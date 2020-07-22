@@ -9,7 +9,7 @@ const assert = chai.assert;
  */
 const allEntriesDefined = (obj) => {
 
-  const objValues = Object._(obj);
+  const objValues = Object.values(obj);
   const allAreDefined = objValues
     .reduce((acc, next) => {
       return acc && next !== undefined;

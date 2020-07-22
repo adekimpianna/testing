@@ -12,8 +12,9 @@ const allEntriesDefined = (obj) => {
   let allAreDefined = true;
   for (const key in obj) {
     const value = obj[key];
-    const valueIsDefined = _;
-    allAreDefined = _ && _;
+    const valueStringed = String(value);
+    const valueIsDefined = (typeof obj[key] !== 'undefined');
+    allAreDefined = Boolean(allAreDefined && valueIsDefined);
   }
 
   return allAreDefined;
