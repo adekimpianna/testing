@@ -42,7 +42,7 @@
     const resetNumbersHandler = () => {
       debugger;
       const userInput = prompt(`How many numbers do you like?`);
-      if (userInput === false) {return;}
+      if (userInput === null) {return;}
 
       const userNumber = Number(userInput);
       if (Number.isNaN(userNumber)) {
@@ -62,7 +62,7 @@
     const greaterThanHandler = () => {
       debugger;
       const userInput = prompt(`find all numbers greater than`);
-      if (userInput === false) { return; }
+      if (userInput === null) { return; }
 
       const userNumber = Number(userInput);
       if (Number.isNaN(userNumber)) {
@@ -81,7 +81,7 @@
     const lessThanHandler = () => {
       debugger;
       const userInput = prompt(`find all numbers smaller than`);
-      if (userInput === false) { return; }
+      if (userInput === null) { return; }
 
       const userNumber = Number(userInput);
       if (Number.isNaN(userNumber)) {
@@ -100,7 +100,7 @@
     const divisibleByHandler = () => {
       debugger;
       const userInput = prompt(`find all numbers divisible by`);
-      if (userInput === false ) { return; }
+      if (userInput === null ) { return; }
 
       const userNumber = Number(userInput);
       if (Number.isNaN(userNumber)) {
